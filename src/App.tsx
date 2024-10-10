@@ -11,5 +11,6 @@ export const App = () => {
     <div className={styles.main}>
       <img src={waffleLogo} />
     </div>
+    // 커밋 테스트
   );
 };
