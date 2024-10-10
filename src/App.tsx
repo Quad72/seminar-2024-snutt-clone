@@ -1,9 +1,15 @@
 import './reset.css';
 
-import { useReducer } from 'react';
+import waffleLogo from './assets/waffleLogo.svg';
+//import { useReducer } from 'react';
+import styles from './css/App.module.css';
 
 export const App = () => {
-  const [count, increment] = useReducer((c: number) => c + 1, 0);
+  //const [count, increment] = useReducer((c: number) => c + 1, 0);
 
-  return <button onClick={increment}>{count}</button>;
+  return (
+    <div className={styles.main}>
+      <img src={waffleLogo} />
+    </div>
+  );
 };
