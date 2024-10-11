@@ -125,7 +125,7 @@
   width: 44px;
   height: 44px;
   border-radius: 21.6px;
-  background: url('./src/assets/KakaoLogo.png') lightgray -2.973px -1.784px /
+  background: url('src/assets/KakaoLogo.png') lightgray -2.973px -1.784px /
     106.757% 104.054% no-repeat;
 }
 
@@ -146,20 +146,20 @@
   height: 24.8px;
   flex-shrink: 0;
   border-radius: 24.4px;
-  background: url('./src/assets/GoogleLogo.png') lightgray -0.081px 0px / 100.649%
+  background: url('src/assets/GoogleLogo.png') lightgray -0.081px 0px / 100.649%
     100% no-repeat;
 }
 
 .Facebooklogo {
   width: 44px;
   height: 44px;
-  background: url('./src/assets/FaceBookLogo.png') white 50% / cover no-repeat;
+  background: url('src/assets/FaceBookLogo.png') white 50% / cover no-repeat;
 }
 
 .Applelogo {
   width: 44px;
   height: 44px;
   border-radius: 28.4px;
-  background: url('./src/assets/AppleLogo.png') lightgray -4.046px -4.702px /
+  background: url('src/assets/AppleLogo.png') lightgray -4.046px -4.702px /
     119.923% 120.611% no-repeat;
 }
