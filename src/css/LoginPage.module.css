@@ -1,7 +1,7 @@
-.main{
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
 }
 
 .upperbar {
@@ -34,96 +34,96 @@
   font-weight: 600;
 }
 
-.typebox{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px;
+.typebox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
 }
 
-.idtext{
+.idtext {
   padding: 3px;
-    color: gray;
+  color: gray;
 }
 
-.idbox{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.idbox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.idinput{
-    border: none;
-    padding: 3px;
-    border-bottom: 1px solid lightgray; 
-    width: 100%;
-    outline: none;
+.idinput {
+  border: none;
+  padding: 3px;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  outline: none;
 }
 
 .idinput::placeholder {
-    color: gray;
-    filter: opacity(0.5);
+  color: gray;
+  filter: opacity(0.5);
 }
 
-.passwordbox{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.passwordbox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.passwordtext{
+.passwordtext {
   padding: 3px;
-    color: gray;
+  color: gray;
 }
 
-.passwordinput{
+.passwordinput {
   border: none;
   padding: 3px;
-  border-bottom: 1px solid lightgray; 
+  border-bottom: 1px solid lightgray;
   width: 100%;
   outline: none;
 }
 
 .passwordinput::placeholder {
-    color: gray;
-    filter: opacity(0.5);
+  color: gray;
+  filter: opacity(0.5);
 }
 
-.buttonbox{
-    position: absolute;
-    bottom: 0px;
-    padding: 20px;
-    width: 100%;
+.buttonbox {
+  position: absolute;
+  bottom: 0px;
+  padding: 20px;
+  width: 100%;
 }
 
 .loginbutton {
-    width: 100%;
-    padding: 12px;
-    border: transparent;
-    border-radius: 6px;
-    background: var(--SNUTT-orange, #f58d3d);
-    color: var(--Text-onBG, #fff);
-    font-feature-settings:
-      'liga' off,
-      'clig' off;
-    font-family: Pretendard;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
+  width: 100%;
+  padding: 12px;
+  border: transparent;
+  border-radius: 6px;
+  background: var(--SNUTT-orange, #f58d3d);
+  color: var(--Text-onBG, #fff);
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
 
-.subtextbox{
+.subtextbox {
   margin-top: 5px;
 }
 
-.subtexts{
+.subtexts {
   color: gray;
   text-decoration: underline;
   padding: 2px;
 }
 
-.subtextssplicer{
+.subtextssplicer {
   margin-left: 3px;
   margin-right: 3px;
   color: gray;
