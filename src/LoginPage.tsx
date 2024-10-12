@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
+import leftarrow from './assets/left-arrow.png';
 import styles from './css/LoginPage.module.css';
 
 const LoginPage = () => {
@@ -13,10 +14,7 @@ const LoginPage = () => {
     <div className={styles.main}>
       <div className={styles.upperbar}>
         <button className={styles.backbutton} onClick={handleGoBack}>
-          <img
-            src="./src/assets/left-arrow.png"
-            className={styles.backarrow}
-          ></img>
+          <img src={leftarrow} className={styles.backarrow}></img>
           뒤로
         </button>
         <span className={styles.title}>로그인</span>

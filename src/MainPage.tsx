@@ -2,14 +2,18 @@ import './reset.css';
 
 import { useNavigate } from 'react-router-dom';
 
+import AppleLogo from './assets/Applesmall.png';
+import FacebookLogo from './assets/FaceBooksmall.png';
+import GoogleLogo from './assets/GoogleLogo.png';
+import KakaoLogo from './assets/Kakaosmall.png';
 import waffleLogo from './assets/waffleLogo.svg';
 import styles from './css/MainPage.module.css';
 
 const MainPage = () => {
-  const navigate = useNavigate(); // useNavigate 훅 사용
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigate('/login'); // '/another' 경로로 이동
+    navigate('/login');
   };
 
   return (
@@ -32,12 +36,12 @@ const MainPage = () => {
             <hr className={styles.snstextline}></hr>
           </div>
           <div className={styles.snslogobox}>
-            <div className={styles.Kakaologo}></div>
+            <img className={styles.Kakaologo} src={KakaoLogo}></img>
             <div className={styles.Googlelogobox}>
-              <div className={styles.Googlelogo}></div>
+              <img className={styles.Googlelogo} src={GoogleLogo}></img>
             </div>
-            <div className={styles.Facebooklogo}></div>
-            <div className={styles.Applelogo}></div>
+            <img className={styles.Facebooklogo} src={FacebookLogo}></img>
+            <img className={styles.Applelogo} src={AppleLogo}></img>
           </div>
         </div>
       </div>
