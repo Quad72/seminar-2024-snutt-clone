@@ -3,7 +3,7 @@ import './reset.css';
 import { useNavigate } from 'react-router-dom';
 
 import AppleLogo from './assets/Applesmall.png';
-import FacebookLogo from './assets/FaceBooksmall.png';
+import FacebookLogo from './assets/Facebooksmall.png';
 import GoogleLogo from './assets/GoogleLogo.png';
 import KakaoLogo from './assets/Kakaosmall.png';
 import waffleLogo from './assets/waffleLogo.svg';
