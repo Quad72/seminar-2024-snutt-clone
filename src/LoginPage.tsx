@@ -45,6 +45,7 @@ const LoginPage = ({ setToken }: LoginProps) => {
       navigate('/profile');
     } catch (error) {
       console.error('error: ', error);
+      alert(error);
     }
   };
 
