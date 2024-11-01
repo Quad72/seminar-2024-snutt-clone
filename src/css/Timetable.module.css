@@ -1,0 +1,55 @@
+.timetable {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+}
+
+.emptycell {
+  border: 0.5px solid #ddd;
+  background-color: transparent;
+}
+
+.day {
+  border: 0.5px solid #ddd;
+  color: #ddd;
+  background-color: transparent;
+  text-align: center;
+}
+
+.body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto repeat(5, 1fr); /* 첫 번째 열은 시간, 나머지 5열은 요일 */
+  grid-template-rows: 20px auto; /* 24시간 */
+}
+
+.row {
+  display: contents;
+}
+
+.hour {
+  border: 0.5px solid #ddd;
+  color: #ddd;
+  background-color: transparent;
+}
+
+.cell {
+  color: white;
+  border: 0.5px solid #ddd;
+  text-align: center;
+  border-top: none;
+  border-left: none;
+  position: relative;
+}
+
+/*.cell:first-child {
+  border-left: 1px solid #ddd;
+}
+.row:first-child .cell {
+  border-top: 1px solid #ddd;
+}*/
