@@ -1,9 +1,8 @@
 .main {
-  height: 100vh;
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
+  flex-direction: column;
 }
 
 .nametext {
@@ -11,4 +10,61 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
+}
+
+.Upperbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  flex-direction: row;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-direction: row;
+}
+
+.TabButton {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  color: #000000;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.timetable {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.TabButton.active .searchIcon path {
+  stroke: black;
+  stroke-width: 2px;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import styles from './css/ProfilePage.module.css';
+import Timetable from './Timetable';
 
 type ProfileProps = {
   token: string | null;
@@ -50,11 +51,34 @@ const ProfilePage = ({ token }: ProfileProps) => {
     void fetchProfile();
   }, [token]);
 
+  const scheduleData = [
+    {
+      day: '월',
+      startTime: '10:00',
+      endTime: '10:45',
+      subject: '수학',
+      color: 'red',
+    },
+    {
+      day: '화',
+      startTime: '11:00',
+      endTime: '13:45',
+      subject: '영어',
+      color: 'blue',
+    },
+  ];
+
   return (
     <div className={styles.main}>
-      <p className={styles.nametext}>
-        {nickname !== null ? `${nickname}#${tag}` : '로딩중...'}
-      </p>
+      <div className={styles.Upperbar}>
+        <h3>24-2</h3>
+        <p className={styles.nametext}>
+          {nickname !== null ? `${nickname}#${tag}` : '로딩중...'}
+        </p>
+      </div>
+      <div className={styles.timetable}>
+        <Timetable scheduleData={scheduleData} />
+      </div>
     </div>
   );
 };
