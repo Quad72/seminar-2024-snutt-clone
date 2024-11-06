@@ -42,7 +42,7 @@ const LoginPage = ({ setToken }: LoginProps) => {
 
       const data = (await response.json()) as TokenResponse;
       setToken(data.token);
-      navigate('/profile');
+      navigate('/');
     } catch (error) {
       console.error('error: ', error);
     }

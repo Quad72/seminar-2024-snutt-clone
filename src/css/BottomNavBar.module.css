@@ -1,0 +1,15 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-direction: row;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
