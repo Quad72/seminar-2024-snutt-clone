@@ -4,6 +4,7 @@
   justify-content: center;
   flex-direction: column;
   background-color: rgb(235, 236, 240);
+  padding: 20px;
 }
 
 .nametext {
@@ -15,8 +16,32 @@
 
 .buttonbox {
   bottom: 0px;
-  padding: 20px;
   width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.boxname {
+  color: gray;
+  padding: 10px;
+}
+
+.normalbutton {
+  width: 100%;
+  padding: 12px;
+  border: transparent;
+  border-radius: 6px;
+  background: white;
+  color: black;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: left;
 }
 
 .logoutbutton {
