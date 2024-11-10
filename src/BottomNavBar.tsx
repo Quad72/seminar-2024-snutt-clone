@@ -20,19 +20,19 @@ const BottomNavBar: React.FC = () => {
       iconOn: timetableonIcon,
     },
     {
-      path: '/search',
+      path: '/',
       label: 'Search',
       iconOn: searchIcon,
       iconOff: searchIcon,
     },
     {
-      path: '/lecturereview',
+      path: '/',
       label: 'Lecturereview',
       iconOn: lecturereviewoffIcon,
       iconOff: lecturereviewoffIcon,
     },
     {
-      path: '/friends',
+      path: '/',
       label: 'Friends',
       iconOff: mypageoffIcon,
       iconOn: mypageoffIcon,
