@@ -1,6 +1,6 @@
 import './reset.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Layout from './Layout';
@@ -10,12 +10,26 @@ import MyPage from './MyPage';
 import ProfilePage from './ProfilePage';
 
 export const App = () => {
-  const [token, setToken] = useState<string | null>(null);
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [token, setToken] = useState<string | null>(
+    localStorage.getItem('token'),
+  );
+  const [loggedIn, setLoggedIn] = useState<boolean>(token != null);
 
-  if (token !== null && !loggedIn) {
-    setLoggedIn(true);
-  }
+  useEffect(() => {
+    if (token != null) {
+      localStorage.setItem('token', token);
+      setLoggedIn(true);
+    } else {
+      localStorage.removeItem('token');
+      setLoggedIn(false);
+    }
+  }, [token, loggedIn]);
+
+  const handleLogout = () => {
+    setToken(null);
+    localStorage.removeItem('token');
+    setLoggedIn(false);
+  };
 
   return (
     <Router>
@@ -30,7 +44,10 @@ export const App = () => {
           // 로그인 후 Layout 경로
           <Route path="/" element={<Layout />}>
             <Route index element={<ProfilePage token={token} />} />
-            <Route path="Mypage" element={<MyPage />} />
+            <Route
+              path="Mypage"
+              element={<MyPage token={token} handleLogout={handleLogout} />}
+            />
           </Route>
         )}
       </Routes>

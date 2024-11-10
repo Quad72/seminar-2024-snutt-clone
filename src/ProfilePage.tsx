@@ -129,23 +129,6 @@ const ProfilePage = ({ token }: ProfileProps) => {
     void fetchScheduleData();
   }, [token]);
 
-  /*const scheduleData = [
-    {
-      day: '월',
-      startTime: '10:00',
-      endTime: '10:45',
-      subject: '수학',
-      color: 'red',
-    },
-    {
-      day: '화',
-      startTime: '11:00',
-      endTime: '13:45',
-      subject: '영어',
-      color: 'blue',
-    },
-  ];*/
-
   return (
     <div className={styles.main}>
       <div className={styles.Upperbar}>
