@@ -16,16 +16,17 @@
 
 .day {
   border: 0.5px solid #ddd;
-  color: #ddd;
+  color: gray;
   background-color: transparent;
   text-align: center;
+  align-content: center;
 }
 
 .body {
   flex: 1;
   display: grid;
-  grid-template-columns: auto repeat(5, 1fr); /* 첫 번째 열은 시간, 나머지 5열은 요일 */
-  grid-template-rows: 20px auto; /* 24시간 */
+  grid-template-columns: auto repeat(5, 1fr);
+  grid-template-rows: 30px auto;
 }
 
 .row {
@@ -34,7 +35,7 @@
 
 .hour {
   border: 0.5px solid #ddd;
-  color: #ddd;
+  color: gray;
   background-color: transparent;
 }
 
@@ -46,10 +47,3 @@
   border-left: none;
   position: relative;
 }
-
-/*.cell:first-child {
-  border-left: 1px solid #ddd;
-}
-.row:first-child .cell {
-  border-top: 1px solid #ddd;
-}*/

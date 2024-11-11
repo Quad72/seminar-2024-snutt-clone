@@ -14,13 +14,13 @@
 
 .Upperbar {
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
   align-items: center;
   background-color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-left: 16px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 6px;
   flex-direction: row;
 }
 
@@ -67,4 +67,19 @@
 .TabButton.active .searchIcon path {
   stroke: black;
   stroke-width: 2px;
+}
+
+.semester {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.credits {
+  color: gray;
+  font-size: 12px;
+}
+
+.listviewToggle {
+  height: 26px;
+  width: 26px;
 }

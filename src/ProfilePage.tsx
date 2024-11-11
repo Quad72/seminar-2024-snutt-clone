@@ -1,21 +1,11 @@
 import { useEffect, useState } from 'react';
 
+import ListviewToggle from './assets/topbar_listview.svg';
 import styles from './css/ProfilePage.module.css';
 import Timetable from './Timetable';
 
 type ProfileProps = {
   token: string | null;
-};
-
-type ProfileResponse = {
-  id: string;
-  isAdmin: boolean;
-  regDate: string;
-  notificationCheckedAt: string;
-  email: string;
-  localId: string;
-  fbName: string;
-  nickname: { nickname: string; tag: string };
 };
 
 type ClassSchedule = {
@@ -48,9 +38,9 @@ type TimeTableInfo = {
 };
 
 const ProfilePage = ({ token }: ProfileProps) => {
-  const [nickname, setNickname] = useState<string | null>(null);
-  const [tag, setTag] = useState<string>('');
   const [scheduleData, setScheduleData] = useState<ClassSchedule[]>([]);
+  const [totalCredits, setTotalCredits] = useState<number>(0);
+  const [timeTableTitle, settimeTableTitle] = useState<string>('');
 
   const convertMinutesToTime = (minutes: number) => {
     const hours = Math.floor(minutes / 60);
@@ -77,10 +67,6 @@ const ProfilePage = ({ token }: ProfileProps) => {
         if (!response.ok) {
           throw new Error('프로필 불러오기 실패');
         }
-
-        const data = (await response.json()) as ProfileResponse;
-        setNickname(data.nickname.nickname);
-        setTag(data.nickname.tag);
       } catch (error) {
         console.error('error:', error);
       }
@@ -104,14 +90,18 @@ const ProfilePage = ({ token }: ProfileProps) => {
         }
 
         const data = (await response.json()) as TimeTableInfo;
+        settimeTableTitle(data.title);
         const lecture_list = data.lecture_list;
+        setTotalCredits(
+          lecture_list.reduce((sum, item) => sum + item.credit, 0),
+        );
 
         const transformedData = lecture_list.flatMap((lecture: Lecture) => {
           const subject = lecture.course_title;
           const color = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
 
           return lecture.class_time_json.map((classTime: ClassTime) => ({
-            day: String(dayMapping[classTime.day]), // Map day to 한글 (e.g., 월, 화, 수)
+            day: String(dayMapping[classTime.day]),
             startTime: convertMinutesToTime(classTime.startMinute),
             endTime: convertMinutesToTime(classTime.endMinute),
             subject,
@@ -132,10 +122,9 @@ const ProfilePage = ({ token }: ProfileProps) => {
   return (
     <div className={styles.main}>
       <div className={styles.Upperbar}>
-        <h3>학기</h3>
-        <p className={styles.nametext}>
-          {nickname !== null ? `${nickname}#${tag}` : '로딩중...'}
-        </p>
+        <img src={ListviewToggle} className={styles.listviewToggle}></img>
+        <p className={styles.semester}>{timeTableTitle}</p>
+        <p className={styles.credits}>({totalCredits}학점)</p>
       </div>
       <div className={styles.timetable}>
         <Timetable scheduleData={scheduleData} />
