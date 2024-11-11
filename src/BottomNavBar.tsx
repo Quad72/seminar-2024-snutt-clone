@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import friendstaboffIcon from './assets/tab_friends_off.svg';
 import lecturereviewoffIcon from './assets/tab_lecturereview_off.svg';
 import mypageoffIcon from './assets/tab_mypage_off.svg';
 import searchIcon from './assets/tab_search.svg';
@@ -11,7 +12,6 @@ import styles from './css/BottomNavBar.module.css';
 const BottomNavBar: React.FC = () => {
   const location = useLocation();
 
-  // 아이콘을 URL로 설정
   const navItems = [
     {
       path: '/',
@@ -34,8 +34,8 @@ const BottomNavBar: React.FC = () => {
     {
       path: '/',
       label: 'Friends',
-      iconOff: mypageoffIcon,
-      iconOn: mypageoffIcon,
+      iconOff: friendstaboffIcon,
+      iconOn: friendstaboffIcon,
     },
     {
       path: '/mypage',

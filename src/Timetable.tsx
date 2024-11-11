@@ -40,19 +40,6 @@ const Timetable: React.FC<TimetableProps> = ({ scheduleData }) => {
     });
   };
 
-  /*const shouldRenderCell = (day: string, hour: string) => {
-    const currentHour = parseInt(hour);
-    return !scheduleData.some((schedule) => {
-      if (schedule.day !== day) return false;
-      const startPosition = calculatePosition(schedule.startTime);
-      const endPosition = calculatePosition(schedule.endTime);
-      return (
-        currentHour > Math.floor(startPosition) &&
-        currentHour < Math.ceil(endPosition)
-      );
-    });
-  };*/
-
   return (
     <div className={styles.timetable}>
       <div className={styles.body}>
