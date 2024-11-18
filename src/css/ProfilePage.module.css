@@ -80,6 +80,25 @@
 }
 
 .listviewToggle {
+  padding: 3px;
+  height: 26px;
+  width: 26px;
+}
+
+.lectureList {
+  margin-left: auto;
+  margin-right: 0;
+  height: 26px;
+  width: 26px;
+}
+
+.shareButton {
+  padding: 3px;
+  height: 26px;
+  width: 26px;
+}
+
+.notification {
   height: 26px;
   width: 26px;
 }
