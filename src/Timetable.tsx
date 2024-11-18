@@ -66,7 +66,7 @@ const Timetable: React.FC<TimetableProps> = ({ scheduleData }) => {
                 return (
                   <div className={styles.cell} key={`${day}-${hour}`}>
                     <div
-                      className={styles.classBlock}
+                      className={styles.classblock}
                       style={{
                         position: 'absolute',
                         top: `${startOffset}%`,

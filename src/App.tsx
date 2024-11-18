@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Layout from './Layout';
 import LectureList from './LectureList';
+import LecturePage from './LecturePage';
 import LoginPage from './LoginPage';
 import MainPage from './MainPage';
 import MyPage from './MyPage';
@@ -52,6 +53,10 @@ export const App = () => {
             <Route
               path="/timetables/:id/lectures"
               element={<LectureList token={token} />}
+            />
+            <Route
+              path="/timetables/:tableId/lectures/:lectureId"
+              element={<LecturePage token={token} />}
             />
           </Route>
         )}
