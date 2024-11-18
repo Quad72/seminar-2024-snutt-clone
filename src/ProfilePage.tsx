@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 
+import LectureList from './assets/topbar_lecturelist.svg';
 import ListviewToggle from './assets/topbar_listview.svg';
+import Notification from './assets/topbar_notification.svg';
+import ShareButton from './assets/topbar_share.svg';
 import styles from './css/ProfilePage.module.css';
 import Timetable from './Timetable';
 
@@ -123,8 +126,13 @@ const ProfilePage = ({ token }: ProfileProps) => {
     <div className={styles.main}>
       <div className={styles.Upperbar}>
         <img src={ListviewToggle} className={styles.listviewToggle}></img>
-        <p className={styles.semester}>{timeTableTitle}</p>
+        <p className={styles.semester}>
+          {timeTableTitle !== '' ? timeTableTitle : '로딩중...'}
+        </p>
         <p className={styles.credits}>({totalCredits}학점)</p>
+        <img src={LectureList} className={styles.lectureList}></img>
+        <img src={ShareButton} className={styles.shareButton}></img>
+        <img src={Notification} className={styles.notification}></img>
       </div>
       <div className={styles.timetable}>
         <Timetable scheduleData={scheduleData} />
