@@ -66,3 +66,7 @@
   background-color: #f5f5f5;
   transform: translateY(-50%);
 }
+
+.classblock {
+  font-size: 11px;
+}

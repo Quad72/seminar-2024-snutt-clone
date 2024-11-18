@@ -35,6 +35,7 @@ type Lecture = {
 };
 
 type TimeTableInfo = {
+  _id: string;
   year: number;
   semester: 1 | 2 | 3 | 4;
   lecture_list: Lecture[];
@@ -45,6 +46,7 @@ const ProfilePage = ({ token }: ProfileProps) => {
   const [scheduleData, setScheduleData] = useState<ClassSchedule[]>([]);
   const [totalCredits, setTotalCredits] = useState<number>(0);
   const [timeTableTitle, settimeTableTitle] = useState<string>('');
+  const [timeTableId, setTimeTableId] = useState<string>('');
 
   const navigate = useNavigate();
 
@@ -101,6 +103,7 @@ const ProfilePage = ({ token }: ProfileProps) => {
 
         const data = (await response.json()) as TimeTableInfo;
         settimeTableTitle(data.title);
+        setTimeTableId(data._id);
         const lecture_list = data.lecture_list;
         setTotalCredits(
           lecture_list.reduce((sum, item) => sum + item.credit, 0),
@@ -141,7 +144,7 @@ const ProfilePage = ({ token }: ProfileProps) => {
           src={LectureList}
           className={styles.lectureList}
           onClick={() => {
-            goToLectureList('recent');
+            goToLectureList(timeTableId);
           }}
         ></img>
         <img src={ShareButton} className={styles.shareButton}></img>
