@@ -1,0 +1,78 @@
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.upperbar {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding-left: 16px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  flex-direction: row;
+  border-bottom: 1px solid #ddd;
+}
+
+.backbutton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+  background-color: transparent;
+  border: transparent;
+}
+
+.backarrow {
+  height: 22px;
+  margin-right: 2px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.list {
+  height: calc(100vh - 95px);
+  overflow-y: auto;
+  background-color: #f4f4f4;
+}
+
+.mainline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.eachline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.lectureitem {
+  border-bottom: 1px solid #ddd;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.lectureinfos {
+  font-size: 14px;
+}
+
+.lectureicon {
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+}
