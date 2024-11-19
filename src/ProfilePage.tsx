@@ -18,6 +18,7 @@ type ClassSchedule = {
   endTime: string;
   subject: string;
   color: string;
+  _id: string;
 };
 
 type ClassTime = {
@@ -28,7 +29,7 @@ type ClassTime = {
 };
 
 type Lecture = {
-  id: string;
+  _id: string;
   credit: number;
   class_time_json: ClassTime[];
   course_title: string;
@@ -131,6 +132,7 @@ const ProfilePage = ({ token }: ProfileProps) => {
               endTime: convertMinutesToTime(classTime.endMinute),
               subject,
               color: String(colorMapping[index % colorMapping.length]),
+              _id: String(lecture._id),
             }));
           },
         );
@@ -164,7 +166,7 @@ const ProfilePage = ({ token }: ProfileProps) => {
         <img src={Notification} className={styles.notification}></img>
       </div>
       <div className={styles.timetable}>
-        <Timetable scheduleData={scheduleData} />
+        <Timetable scheduleData={scheduleData} timetableId={timeTableId} />
       </div>
     </div>
   );

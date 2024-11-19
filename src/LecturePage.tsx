@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import leftarrow from './assets/left-arrow.png';
 import styles from './css/LecturePage.module.css';
+import LoadingBar from './LoadingBar';
 
 type ClassTime = {
   day: 0 | 1 | 2 | 3 | 4 | 5 | 6;
@@ -243,9 +244,7 @@ const LecturePage = ({ token }: LectureProps) => {
           </div>
         </div>
       ) : (
-        <div className={styles.content}>
-          <p className={styles.loading}>로딩중...</p>
-        </div>
+        <LoadingBar />
       )}
     </div>
   );

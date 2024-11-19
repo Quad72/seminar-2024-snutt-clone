@@ -20,7 +20,7 @@ const BottomNavBar: React.FC = () => {
       iconOn: timetableonIcon,
     },
     {
-      path: '/search',
+      path: '/',
       label: 'Search',
       iconOn: searchIcon,
       iconOff: searchIcon,
@@ -32,7 +32,7 @@ const BottomNavBar: React.FC = () => {
       iconOff: lecturereviewoffIcon,
     },
     {
-      path: '/friends',
+      path: '/',
       label: 'Friends',
       iconOff: friendstaboffIcon,
       iconOn: friendstaboffIcon,
