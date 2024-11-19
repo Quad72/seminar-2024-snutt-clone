@@ -66,23 +66,15 @@ const MyPage = ({ token, handleLogout }: ProfileProps) => {
       </p>
       <div className={styles.buttonbox}>
         <p className={styles.boxname}>디스플레이</p>
-        <button className={styles.normalbutton} onClick={handleLogoutClick}>
-          시간표 설정
-        </button>
-        <button className={styles.normalbutton} onClick={handleLogoutClick}>
-          시간표 테마
-        </button>
+        <button className={styles.normalbutton}>시간표 설정</button>
+        <button className={styles.normalbutton}>시간표 테마</button>
       </div>
       <div className={styles.buttonbox}>
         <p className={styles.boxname}>서비스</p>
-        <button className={styles.normalbutton} onClick={handleLogoutClick}>
-          빈자리 알림
-        </button>
+        <button className={styles.normalbutton}>빈자리 알림</button>
       </div>
       <div className={styles.buttonbox}>
-        <button className={styles.normalbutton} onClick={handleLogoutClick}>
-          개인정보 처리방침
-        </button>
+        <button className={styles.normalbutton}>개인정보 처리방침</button>
       </div>
       <div className={styles.buttonbox}>
         <button className={styles.logoutbutton} onClick={handleLogoutClick}>
