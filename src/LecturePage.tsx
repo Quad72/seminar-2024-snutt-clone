@@ -68,6 +68,7 @@ const LecturePage = ({ token }: LectureProps) => {
       if (token === null) throw new Error('No token found');
       if (tableId === undefined || lectureId === undefined)
         throw new Error('id is undefined');
+      if (!window.confirm('강의를 삭제하시겠습니까?')) return;
       const response = await fetch(
         `https://wafflestudio-seminar-2024-snutt-redirect.vercel.app/v1/tables/${tableId}/lecture/${lectureId}`,
         {

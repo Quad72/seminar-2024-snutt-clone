@@ -25,6 +25,7 @@
   font-size: 20px;
   background-color: transparent;
   border: transparent;
+  color: black;
 }
 
 .backarrow {
@@ -46,7 +47,7 @@
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
   text-align: center;
   border: transparent;
@@ -79,7 +80,7 @@
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
   text-align: left;
   justify-content: space-between;
@@ -94,7 +95,7 @@
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
   text-align: left;
   justify-content: space-between;
