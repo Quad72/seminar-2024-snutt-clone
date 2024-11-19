@@ -62,6 +62,17 @@ const ProfilePage = ({ token }: ProfileProps) => {
 
   useEffect(() => {
     const dayMapping = ['월', '화', '수', '목', '금'];
+    const colorMapping = [
+      'crimson',
+      'darkorange',
+      'gold',
+      'yellowgreen',
+      'mediumseagreen',
+      'lightskyblue',
+      'darkturquoise',
+      'mediumpurple',
+      'darkmagenta',
+    ];
 
     const fetchProfile = async () => {
       try {
@@ -109,18 +120,20 @@ const ProfilePage = ({ token }: ProfileProps) => {
           lecture_list.reduce((sum, item) => sum + item.credit, 0),
         );
 
-        const transformedData = lecture_list.flatMap((lecture: Lecture) => {
-          const subject = lecture.course_title;
-          const color = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
+        const transformedData = lecture_list.flatMap(
+          (lecture: Lecture, index) => {
+            const subject = lecture.course_title;
+            // const color = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
 
-          return lecture.class_time_json.map((classTime: ClassTime) => ({
-            day: String(dayMapping[classTime.day]),
-            startTime: convertMinutesToTime(classTime.startMinute),
-            endTime: convertMinutesToTime(classTime.endMinute),
-            subject,
-            color,
-          }));
-        });
+            return lecture.class_time_json.map((classTime: ClassTime) => ({
+              day: String(dayMapping[classTime.day]),
+              startTime: convertMinutesToTime(classTime.startMinute),
+              endTime: convertMinutesToTime(classTime.endMinute),
+              subject,
+              color: String(colorMapping[index % colorMapping.length]),
+            }));
+          },
+        );
 
         setScheduleData(transformedData);
       } catch (error) {

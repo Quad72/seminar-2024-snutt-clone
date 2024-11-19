@@ -20,7 +20,7 @@ const LoginPage = ({ setToken }: LoginProps) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const handleLoginClick = async () => {
