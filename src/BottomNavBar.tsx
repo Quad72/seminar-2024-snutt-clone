@@ -26,7 +26,7 @@ const BottomNavBar: React.FC = () => {
       iconOff: searchIcon,
     },
     {
-      path: '/',
+      path: '/lecture',
       label: 'Lecturereview',
       iconOn: lecturereviewoffIcon,
       iconOff: lecturereviewoffIcon,

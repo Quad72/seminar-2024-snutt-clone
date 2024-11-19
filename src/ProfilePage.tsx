@@ -35,6 +35,7 @@ type Lecture = {
 };
 
 type TimeTableInfo = {
+  _id: string;
   year: number;
   semester: 1 | 2 | 3 | 4;
   lecture_list: Lecture[];
@@ -45,6 +46,7 @@ const ProfilePage = ({ token }: ProfileProps) => {
   const [scheduleData, setScheduleData] = useState<ClassSchedule[]>([]);
   const [totalCredits, setTotalCredits] = useState<number>(0);
   const [timeTableTitle, settimeTableTitle] = useState<string>('');
+  const [timeTableId, setTimeTableId] = useState<string>('');
 
   const navigate = useNavigate();
 
@@ -60,6 +62,17 @@ const ProfilePage = ({ token }: ProfileProps) => {
 
   useEffect(() => {
     const dayMapping = ['월', '화', '수', '목', '금'];
+    const colorMapping = [
+      'crimson',
+      'darkorange',
+      'gold',
+      'yellowgreen',
+      'mediumseagreen',
+      'lightskyblue',
+      'darkturquoise',
+      'mediumpurple',
+      'darkmagenta',
+    ];
 
     const fetchProfile = async () => {
       try {
@@ -101,23 +114,26 @@ const ProfilePage = ({ token }: ProfileProps) => {
 
         const data = (await response.json()) as TimeTableInfo;
         settimeTableTitle(data.title);
+        setTimeTableId(data._id);
         const lecture_list = data.lecture_list;
         setTotalCredits(
           lecture_list.reduce((sum, item) => sum + item.credit, 0),
         );
 
-        const transformedData = lecture_list.flatMap((lecture: Lecture) => {
-          const subject = lecture.course_title;
-          const color = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
+        const transformedData = lecture_list.flatMap(
+          (lecture: Lecture, index) => {
+            const subject = lecture.course_title;
+            // const color = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
 
-          return lecture.class_time_json.map((classTime: ClassTime) => ({
-            day: String(dayMapping[classTime.day]),
-            startTime: convertMinutesToTime(classTime.startMinute),
-            endTime: convertMinutesToTime(classTime.endMinute),
-            subject,
-            color,
-          }));
-        });
+            return lecture.class_time_json.map((classTime: ClassTime) => ({
+              day: String(dayMapping[classTime.day]),
+              startTime: convertMinutesToTime(classTime.startMinute),
+              endTime: convertMinutesToTime(classTime.endMinute),
+              subject,
+              color: String(colorMapping[index % colorMapping.length]),
+            }));
+          },
+        );
 
         setScheduleData(transformedData);
       } catch (error) {
@@ -141,7 +157,7 @@ const ProfilePage = ({ token }: ProfileProps) => {
           src={LectureList}
           className={styles.lectureList}
           onClick={() => {
-            goToLectureList('recent');
+            goToLectureList(timeTableId);
           }}
         ></img>
         <img src={ShareButton} className={styles.shareButton}></img>

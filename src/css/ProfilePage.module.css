@@ -22,6 +22,7 @@
   padding-top: 8px;
   padding-bottom: 6px;
   flex-direction: row;
+  height: 50px;
 }
 
 .Navbar {

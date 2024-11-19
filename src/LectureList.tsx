@@ -20,7 +20,7 @@ type ClassTime = {
 };
 
 type Lecture = {
-  id: string;
+  _id: string;
   credit: number;
   class_time_json: ClassTime[];
   course_title: string;
@@ -37,7 +37,9 @@ type TimeTableInfo = {
 };
 
 const LectureList = ({ token }: ProfileProps) => {
-  const [fullLectureList, setfullLectureList] = useState<Lecture[]>([]);
+  const [fullLectureList, setfullLectureList] = useState<Lecture[] | null>(
+    null,
+  );
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -47,6 +49,10 @@ const LectureList = ({ token }: ProfileProps) => {
 
   const handleGoBack = () => {
     navigate(-1);
+  };
+
+  const goToLectureDetails = (lectureId: string) => {
+    navigate(`/timetables/${id}/lectures/${lectureId}`);
   };
 
   const formatTime = (minutes: number) => {
@@ -92,51 +98,60 @@ const LectureList = ({ token }: ProfileProps) => {
           <img src={leftarrow} className={styles.backarrow}></img>
           뒤로
         </button>
-        <span className={styles.title}>강의 목록</span>
       </div>
       <div className={styles.list}>
-        {fullLectureList.map((lecture) => (
-          <div key={lecture.id} className={styles.lectureitem}>
-            <div className={styles.mainline}>
-              <h4>{lecture.course_title}</h4>
-              <p className={styles.lectureinfos}>
-                {lecture.instructor === '' ? '-' : lecture.instructor} /{' '}
-                {lecture.credit}
-                학점
-              </p>
-            </div>
-            <div className={styles.eachline}>
-              <img src={lecturetag} className={styles.lectureicon}></img>
-              <p className={styles.lectureinfos}>
-                {lecture.department === '' ? '-' : lecture.department},{' '}
-                {lecture.academic_year === '' ? '-' : lecture.academic_year}
-              </p>
-            </div>
-            <div className={styles.eachline}>
-              <img src={lectureclock} className={styles.lectureicon}></img>
-              <p className={styles.lectureinfos}>
-                {lecture.class_time_json
-                  .map(
-                    (classTime) =>
-                      `${dayMapping[classTime.day] ?? '-'}(${formatTime(classTime.startMinute)} ~ ${formatTime(classTime.endMinute)})`,
-                  )
-                  .join(', ')}
-              </p>
-            </div>
-            <div className={styles.eachline}>
-              <img src={lecturelocation} className={styles.lectureicon}></img>
-              <p className={styles.lectureinfos}>
-                {Array.from(
-                  new Set(
-                    lecture.class_time_json.map((classTime) =>
-                      classTime.place === '' ? '-' : classTime.place,
+        {fullLectureList !== null ? (
+          fullLectureList.map((lecture) => (
+            <button
+              key={lecture._id}
+              className={styles.lectureitem}
+              onClick={() => {
+                goToLectureDetails(lecture._id);
+              }}
+            >
+              <div className={styles.mainline}>
+                <h4>{lecture.course_title}</h4>
+                <p className={styles.lectureinfos}>
+                  {lecture.instructor === '' ? '-' : lecture.instructor} /{' '}
+                  {lecture.credit}
+                  학점
+                </p>
+              </div>
+              <div className={styles.eachline}>
+                <img src={lecturetag} className={styles.lectureicon}></img>
+                <p className={styles.lectureinfos}>
+                  {lecture.department === '' ? '-' : lecture.department},{' '}
+                  {lecture.academic_year === '' ? '-' : lecture.academic_year}
+                </p>
+              </div>
+              <div className={styles.eachline}>
+                <img src={lectureclock} className={styles.lectureicon}></img>
+                <p className={styles.lectureinfos}>
+                  {lecture.class_time_json
+                    .map(
+                      (classTime) =>
+                        `${dayMapping[classTime.day] ?? '-'}(${formatTime(classTime.startMinute)} ~ ${formatTime(classTime.endMinute)})`,
+                    )
+                    .join(', ')}
+                </p>
+              </div>
+              <div className={styles.eachline}>
+                <img src={lecturelocation} className={styles.lectureicon}></img>
+                <p className={styles.lectureinfos}>
+                  {Array.from(
+                    new Set(
+                      lecture.class_time_json.map((classTime) =>
+                        classTime.place === '' ? '-' : classTime.place,
+                      ),
                     ),
-                  ),
-                ).join(', ')}
-              </p>
-            </div>
-          </div>
-        ))}
+                  ).join(', ')}
+                </p>
+              </div>
+            </button>
+          ))
+        ) : (
+          <div className={styles.loading}>로딩중...</div>
+        )}
       </div>
     </div>
   );
