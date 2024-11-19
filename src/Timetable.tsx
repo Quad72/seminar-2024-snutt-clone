@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './css/Timetable.module.css';
 
@@ -8,15 +9,18 @@ type ClassSchedule = {
   endTime: string;
   subject: string;
   color: string;
+  _id: string;
 };
 
 type TimetableProps = {
   scheduleData: ClassSchedule[];
+  timetableId: string;
 };
 
-const Timetable: React.FC<TimetableProps> = ({ scheduleData }) => {
+const Timetable: React.FC<TimetableProps> = ({ scheduleData, timetableId }) => {
   const days = ['월', '화', '수', '목', '금'];
   const hours = Array.from({ length: 14 }, (_, i) => `${9 + i}`);
+  const navigate = useNavigate();
 
   const calculatePosition = (time: string) => {
     const [hour, minute] = time.split(':').map(Number);
@@ -38,6 +42,10 @@ const Timetable: React.FC<TimetableProps> = ({ scheduleData }) => {
       const startPosition = calculatePosition(schedule.startTime);
       return schedule.day === day && Math.floor(startPosition) === currentHour;
     });
+  };
+
+  const goToLectureDetails = (id: string, lectureId: string) => {
+    navigate(`/timetables/${id}/lectures/${lectureId}`);
   };
 
   return (
@@ -64,7 +72,13 @@ const Timetable: React.FC<TimetableProps> = ({ scheduleData }) => {
                 );
 
                 return (
-                  <div className={styles.cell} key={`${day}-${hour}`}>
+                  <div
+                    className={styles.cell}
+                    key={`${day}-${hour}`}
+                    onClick={() => {
+                      goToLectureDetails(timetableId, classInfo._id);
+                    }}
+                  >
                     <div
                       className={styles.classblock}
                       style={{

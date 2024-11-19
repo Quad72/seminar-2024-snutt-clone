@@ -7,6 +7,7 @@ import lecturelocation from './assets/lecture_location.svg';
 import lecturetag from './assets/lecture_tag.svg';
 import leftarrow from './assets/left-arrow.png';
 import styles from './css/LectureList.module.css';
+import LoadingBar from './LoadingBar';
 
 type ProfileProps = {
   token: string | null;
@@ -150,7 +151,7 @@ const LectureList = ({ token }: ProfileProps) => {
             </button>
           ))
         ) : (
-          <div className={styles.loading}>로딩중...</div>
+          <LoadingBar />
         )}
       </div>
     </div>
